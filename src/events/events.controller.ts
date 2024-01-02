@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Req } from '@nestjs/common';
 
 import { EventsService } from './events.service';
 
@@ -23,8 +23,8 @@ export class EventsController {
         };
     }
     @Get('callback')
-    incrementEventIndex(@Body() shareData){
-        console.log("====shareData====",shareData)
+    incrementEventIndex(@Req() request: Request){
+        console.log("====request====",request)
         return this.eventsService.incrementEventIndex;
     }
 }
