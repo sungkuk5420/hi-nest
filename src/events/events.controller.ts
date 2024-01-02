@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Req } from '@nestjs/common';
+import { Body, Controller, Get, Query, Req } from '@nestjs/common';
 
 import { EventsService } from './events.service';
 
@@ -23,8 +23,8 @@ export class EventsController {
         };
     }
     @Get('callback')
-    incrementEventIndex(@Req() request: Request){
-        console.log("====request====",request)
+    incrementEventIndex(@Query() query){
+        console.log("====query====",query)
         return this.eventsService.incrementEventIndex;
     }
 }
