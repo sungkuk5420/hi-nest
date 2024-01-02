@@ -24,7 +24,6 @@ export class EventsController {
     }
     @Get('callback')
     incrementEventIndex(@Query() query){
-        console.log("====query====",query)
-        return this.eventsService.incrementEventIndex;
+        return this.eventsService.incrementEventIndex(query);
     }
 }
